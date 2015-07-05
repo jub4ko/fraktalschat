@@ -82,7 +82,8 @@ jQuery(function ($) {
           $(this).removeAttr('style');
           $(this).children().fadeIn(100);
         });
-        timeout(function(){$chat.scrollTop($chat[0].scrollHeight);},320);
+        
+        setTimeout(function(){$chat.scrollTop($chat[0].scrollHeight);},320);
     });
 
     socket.on('chatusers', function (data) {
