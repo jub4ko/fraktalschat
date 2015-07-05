@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.heroku.com/salty-harbor-8002.git"
+    "url": "https://github.com/jub4ko/fraktalschat.git"
   },
   "keywords": [
     "node",
