@@ -12,7 +12,7 @@ console.log('Server: Fraktals Chat started.');
 app.use(express.static(path.join(__dirname, 'static')));
 
 console.log('Server running at port: ' + ( process.env.PORT || 5000 ) + '.');
-app.listen(process.env.PORT || 5000);
+server.listen(process.env.PORT || 5000);
 
 
 app.get('/', function (req, res) {
@@ -91,6 +91,6 @@ io.on('connection', function (socket) {
         systemMessage(socket.nickname,'left the room.')
       }
     });
-    
+
     console.log('Socket bindings initiated.');
 });

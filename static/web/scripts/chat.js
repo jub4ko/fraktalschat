@@ -1,7 +1,7 @@
 'use strict';
 
 jQuery(function ($) {
-    var socket = io.connect("https://serene-mesa-8502.herokuapp.com/");
+    var socket = io.connect(window.location.hostname);
 
     var $avatar = $('#avatar');
     var $addForm = $('#add-user');
