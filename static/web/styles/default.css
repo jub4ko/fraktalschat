@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Days+One);
 
-html, body { width:100%; height:100%;}
+html, body { width:100vw; height:100vh;}
 html { -webkit-text-size-adjust: 100%}
 
 body{
@@ -74,12 +74,12 @@ input:active{
 
 #site {
   box-sizing: border-box;
-  height: 80%;
+  height: 80vh;
   margin: 0 auto;
-  min-height: 180px;
+  min-height: 0;
   position: relative;
-  top: 10%;
-  width: 60%;
+  top: 10vh;
+  width: 60;
 }
 #site h2{margin:15px 0;}
 #chat {
@@ -384,9 +384,10 @@ input:active{
 }
 /* MOBILE */
 @media all and (max-width: 540px){
-  #site{
-    top: 10%;
-    width:90%;
+  #site {
+    height: 80vh;
+    top: 10vh;
+    width: 90%;
   }
   h1 {
   font-size: 22px;
