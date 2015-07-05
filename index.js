@@ -11,8 +11,8 @@ var chatusers = [];
 console.log('Server: Fraktals Chat started.');
 app.use(express.static(path.join(__dirname, 'static')));
 
-console.log('Server running at port: ' + (process.env.PORT || 5000) + '.');
-server.listen(process.env.PORT || 5000);
+console.log('Server running at port: ' + (process.env.PORT || 80) + '.');
+server.listen(process.env.PORT || 80);
 
 
 app.get('/', function (req, res) {

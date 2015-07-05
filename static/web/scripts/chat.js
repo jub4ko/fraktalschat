@@ -1,6 +1,16 @@
 'use strict';
 
 jQuery(function ($) {
+    /*
+
+    A lot of refactoring and cleaning up to do,
+    Sorry for the mess!
+
+    It was at some point strictly validated with jslint.
+    but the whole structure is a mess ;) bear with me please.
+
+    */
+
     var socket = io.connect(window.location.hostname);
 
     var $avatar = $('#avatar');
@@ -22,13 +32,10 @@ jQuery(function ($) {
     }
 
     window.addEventListener("load", function(){
-           if(document.height <= window.outerHeight)
-           {
+           if(document.height <= window.outerHeight) {
                document.body.style.height = (window.outerHeight + 50) + 'px';
                setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
-           }
-           else
-           {
+           } else {
                setTimeout( function(){ window.scrollTo(0, 1); }, 0 );
            }
        }
@@ -45,6 +52,11 @@ jQuery(function ($) {
 
     window.addEventListener("load", function(){ if(!window.pageYOffset){ hideAddressBar(); } } );
     window.addEventListener("orientationchange", hideAddressBar );
+
+    var iOS = ( navigator.userAgent.match(/iPad|iPhone|iPod/g) ? true : false )
+    if(IOS){
+      $('.home-screen').show();
+    }
 
     $('a.recycle').on('click',function(e){
         $userBox.val('')
@@ -82,7 +94,7 @@ jQuery(function ($) {
           $(this).removeAttr('style');
           $(this).children().fadeIn(100);
         });
-        
+
         setTimeout(function(){$chat.scrollTop($chat[0].scrollHeight);},320);
     });
 
