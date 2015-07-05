@@ -12,19 +12,27 @@ jQuery(function ($) {
     */
 
     var socket = io.connect(window.location.hostname);
-
+    /* avatar */
     var $avatar = $('#avatar');
     var $addForm = $('#add-user');
     var $userBox = $('#username');
-
+    /* chat */
     var $chatwrapper = $('#chatwrapper');
     var $messageForm = $('#send-message');
     var $messageBox = $('#message');
     var $chat = $('#chat');
-
+    /* user list*/
     var $userList = $('#user-list');
     var $chatusers = $('#chatusers');
+    /* login / registration form */
+    var $loginForm = $('#add-user')
+    var $loginUsername = $('#add-user #loginusername');
+    var $loginPass = $('#add-user #passuser');
+    var $loginEmail = $('#add-user #emailuser');
+    var $loginSubmit = $('#add-user #submit-newuser');
 
+
+    /* utilities */
     var generateUser = function(){
       socket.emit('generate user', '', function (data) {
         $userBox.val(data);
@@ -41,6 +49,7 @@ jQuery(function ($) {
        }
     );
 
+    /* MOBILE WEBAPP */
     function hideAddressBar() {
         if(!window.location.hash) {
             if(document.height < window.outerHeight) {
@@ -58,6 +67,10 @@ jQuery(function ($) {
     if(!fromHomescreen && ios) {
         $('.home-screen').show();
     }
+    /* AVATAR */
+    $('#username').on('click',function(){
+        $(this).val('')
+    });
 
     $('a.recycle').on('click',function(e){
         $userBox.val('')
@@ -81,6 +94,60 @@ jQuery(function ($) {
         $userBox.val('');
     });
 
+    /* REGISTER LOGIN */
+    var $loginForm = $('#login');
+    var $loginUsername = $('#login #loginusername');
+    var $loginPass = $('#login #passuser');
+    var $loginEmail = $('#login #emailuser');
+    var $loginSubmit = $('#login #submit-newuser');
+    var loginuser;
+
+    $loginForm.submit(function (e) {
+
+      e.preventDefault();
+      $loginForm.find('.error').hide();
+
+      var str,
+          seterror = false,
+          registration = false;
+      // crude form check
+      str = $loginPass.val();
+      if(str.length <= 5) { seterror = "password too short (min. 6)" };
+      str = $loginUsername.val();
+      if(str.length < 3 || str.length > 30){  seterror = "username is invalid" };
+
+      if(seterror === false) {
+
+          str = $loginEmail.val();
+          if(str.length < 10) { seterror = "emailaddress is invalid" }else{
+            registration = true;
+          };
+
+          loginuser = {
+              name: $loginUsername.val(),
+              pass: $loginPass.val(),
+              email: $loginEmail.val()
+          }
+          if(registration === true) {
+              socket.emit('registration user', loginuser);
+          } else {
+              socket.emit('login user', loginuser);
+          }
+
+      }else{
+        console.log(seterror);
+        $loginForm.find('.error').show().text(seterror);
+      }
+    })
+
+    $('.loginbutton').on('click',function (e) {
+      $('#user-register').fadeToggle();
+      $('#avatar').fadeToggle();
+      e.preventDefault();
+    });
+    $('#user-register').hide();
+
+    /* MESSAGING */
     $messageForm.submit(function (e) {
       e.preventDefault();
       socket.emit('send message', $messageBox.val());

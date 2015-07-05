@@ -8,6 +8,30 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var chatusers = [];
 
+var db = require('mongoskin').db('mongodb://fraktalsadmin:fraktalspass@ds047772.mongolab.com:47772/fraktalschat');
+var users = db.collection('userschat');
+
+function findUser(username,password) {
+  if(username === undefined)return;
+  var userresult = false;
+  users.find({name:username}, function(err, result) {
+      result.each(function(err, user) {
+          if(user){
+              userresult = user
+          }
+      });
+  });
+
+}
+
+
+/*
+db.collection('userschat').find().toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+});
+*/
+
 console.log('Server: Fraktals Chat started.');
 app.use(express.static(path.join(__dirname, 'static')));
 
@@ -67,6 +91,24 @@ io.on('connection', function (socket) {
             callback('true');
             updateChatUsers();
         }
+    });
+
+    socket.on('registration user', function (user, callback) {
+        if (chatusers.indexOf(user.name) !== -1 && findUser(username) === false) {
+            users.insert({name: user.name,user:{
+                pass: user.pass,
+                email: user.email,
+                ipaddress: '0.0.0.0',
+                privilage: (user.privilage || 'user') },
+                config: { color: '#F6A' }
+            });
+        }
+    });
+
+    socket.on('login user', function (user, callback) {
+      var profile = findUser(user.name);
+      console.log('found profile: ');
+      console.log(profile)
     });
 
     socket.on('generate user', function (data, callback) {

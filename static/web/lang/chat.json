@@ -1,0 +1,28 @@
+{
+  "NL":{
+    "avatar":{
+      "welcome":"Welkom",
+      "username-placeholder":"Gebruikersnaam",
+      "editable":"Je naam is aan te passen",
+      "button":"Ga verder",
+    },
+    "chatWrapper":{
+      "room-title":"Chat",
+      "users-title":"Mensen online",
+      "say":"zeg:",
+      "button":"Verstuur",
+      "status":{
+        "enter":"is binnengekomen.",
+        "leave":"is weg gegaan.",
+        "kick":"is er uit gestuurd."
+      }
+    },
+    "errors":{
+      "avatar":{
+        "tooshort":"Je gebruikersnaam is te kort (min. 6)",
+        "toolong":"Je gebruikersnaam is te lang (max. 30)",
+        "occupied":"Deze gebruikersnaam is al in gebruik"
+      }
+    }
+  }
+}

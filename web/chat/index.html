@@ -23,7 +23,7 @@
   <meta name="theme-color" content="#fca522">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-  
+
   <link rel="apple-touch-icon" sizes="57x57" href="/web/images/icons/apple-touch-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/web/images/icons/apple-touch-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="/web/images/icons/apple-touch-icon-72x72.png">
@@ -47,11 +47,10 @@
       <div id="container">
           <h1>Fraktals <span>Chat</span></h1>
           <div id="avatar">
+            <h3>Welcome</h3>
+            <a href="#" id="buttonregister" class="login loginbutton" >Login / Register</a>
             <form id="add-user">
-                <h3>Welcome</h3>
-
-                <input size="35" type="text" id="username" placeholder="John Doe">
-
+                <input size="35" type="text" id="username" placeholder="Your username">
                 <h3><span>Your name is editable.</span><a href="" class="recycle"></a></h3>
                 <input type="submit" value="Enter Fraktals"/>
             </form>
@@ -80,6 +79,23 @@
                 <li>no users</li>
               </ul>
           </div>
+
+          <div id="user-register" class="hide">
+            <a href="#" id="" class="login loginbutton" >&laquo; Back</a>
+            <form id="login">
+                <h2>Login</h2>
+                <strong>Username:</strong>
+                <input type="text" id="loginusername">
+                <strong>Password:</strong>
+                <input type="password" id="passuser">
+                <strong>E-mail <span>only for registration</span></strong>
+                <input type="text" id="emailuser">
+                <p class="error hide">Sorry this combination does not exist.</p>
+                <input id="submit-newuser" type="submit" value="login">
+                <p class="note">Usernames and Passwords are not yet secure, implementation follows shortly!</p>
+            </form>
+          </div>
+
       </div>
   </div>
 

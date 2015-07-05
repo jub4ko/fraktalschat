@@ -19,6 +19,7 @@ h1,h2,h3,h4{
     font-weight:400;
     margin:0;
     padding:0;
+    cursor:default;
 }
 /*h1 {
   color: #fff;
@@ -42,6 +43,10 @@ h3{
   font-size:4.4vh;
 }
 
+p,strong,ul,li,span{
+  cursor:default;
+}
+
 input {
   background-color: rgba(255, 255, 255, 0.7);
   border: medium none;
@@ -52,6 +57,7 @@ input {
   font-size: 1.3vw;
   padding: 5px;
   transition: all 0.3s ease-in 0s;
+  cursor:pointer;
 }
 
 input[type="submit"]{
@@ -349,6 +355,15 @@ input:active{
   font-size: 21px;
   text-align: center;
 }
+.note {
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+  border-radius: 8px;
+  color: #fc0;
+  font-size: 11px;
+  padding: 2px;
+  text-align: center;
+  cursor:default;
+}
 .hide{display:none;}
 #chat .time {
   color: rgb(100, 150, 255);
@@ -367,6 +382,94 @@ input:active{
 }
 .msg-username{color: rgb(110, 160, 220)}
 
+/* Register */
+.login {
+  color: #fff;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 15px;
+  text-decoration: none;
+  transition:all 0.3s ease-in;
+  z-index:99
+}
+.login:hover,.login:active{
+  transition:all 0.3s ease-out;
+  color:#ffa800;
+}
+
+#user-register {
+  border-radius: 12px;
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+  margin: 0;
+  min-width: 300px;
+  padding: 15px;
+  position: absolute;
+  width: 100%;
+}
+
+#user-register form#login > input {
+  font-size: 18px;
+  padding: 2px 8px;
+}
+
+#user-register #login span {
+  color: #fff;
+  float: right;
+  font-size: 11px;
+  opacity: 0.7;
+  padding: 5px 48px 0 0;
+}
+
+#user-register #login > h2 {
+  font-size: 3.5vw;
+  text-align: center;
+  position:relative;
+  margin-top:-5px;
+}
+
+#user-register > form {
+  display: block;
+  margin: 0 auto;
+  min-width: 290px;
+  width: 19vw;
+}
+
+#user-register > form strong {
+  display: block;
+  font-size: 15px;
+  font-weight: normal;
+  margin: 15px 0 5px;
+}
+
+#user-register #login .error {
+  background: rgba(255, 255, 255, 0.2) none repeat scroll 0 0;
+  border-radius: 8px;
+  color: #c22;
+  font-size: 16px;
+  padding: 3px;
+  width: 92%;
+}
+
+#user-register #login > input {
+  font-size: 16px;
+  padding: 4px 10px;
+}
+
+#user-register #login > input[type="submit"] {
+  clear: both;
+  display: block;
+  margin: 20px 0 0 200px;
+}
+
+#user-register #login .note {
+  margin-top: 30px;
+  display: block;
+  width: 93%;
+}
+
 /*BIG SCREEN */
 @media all and (min-width: 980px) {
   h1 {
@@ -383,6 +486,11 @@ input:active{
     width:80%;
     left:2%;
   }
+
+  #avatar h3 span{
+    font-size:15px;
+  }
+
   #send-message input#message{margin-left:2%}
   #send-message:before{
     left:1.75%;
