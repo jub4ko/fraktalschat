@@ -53,8 +53,7 @@ jQuery(function ($) {
     window.addEventListener("load", function(){ if(!window.pageYOffset){ hideAddressBar(); } } );
     window.addEventListener("orientationchange", hideAddressBar );
 
-    var iOS = ( navigator.userAgent.match(/iPad|iPhone|iPod/g) ? true : false )
-    if(IOS){
+    if( navigator.userAgent.match(/iPad|iPhone|iPod/g) ? true : false ) {
       $('.home-screen').show();
     }
 
