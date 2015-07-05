@@ -409,7 +409,8 @@ input:active{
     width:100%;
   }
 
-  #user-list{visibility:hidden;width:0}
+
+  #user-list{display:none !important;}
 
   #chatusers li {
     font-size:11px;
@@ -460,6 +461,7 @@ input:active{
     text-align: center;
     width: 83%;
   }
+
   .home-screen strong {
     color: #9cf;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
