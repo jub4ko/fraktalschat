@@ -341,7 +341,11 @@ input:active{
   z-index: 0;
 }
 
-.error{color:#F55}
+.error {
+  color: #F55;
+  font-size: 21px;
+  text-align: center;
+}
 .hide{display:none;}
 #chat .time {
   color: rgb(100, 150, 255);
@@ -379,7 +383,7 @@ input:active{
 /* MOBILE */
 @media all and (max-width: 540px){
   #site{
-    top: 5%;
+    top: 10%;
     width:90%;
   }
   h1 {
