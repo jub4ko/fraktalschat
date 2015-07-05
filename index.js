@@ -9,8 +9,7 @@ var io = require('socket.io').listen(server);
 var chatusers = [];
 app.use(express.static(path.join(__dirname, 'static')));
 
-server.listen(5000);
-
+app.listen(process.env.PORT || 5000);
 
 
 app.get('/', function (req, res) {
