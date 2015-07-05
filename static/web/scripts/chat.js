@@ -54,7 +54,7 @@ jQuery(function ($) {
     window.addEventListener("orientationchange", hideAddressBar );
 
     var ios = (navigator.userAgent.match(/iPad|iPhone|iPod/g) ? true : false);
-    var fromHomescreen = window.navigator.standalone || window.external.msIsSiteMode() || false;
+    var fromHomescreen = window.navigator.standalone;
     if(!fromHomescreen && ios) {
         $('.home-screen').show();
     }
