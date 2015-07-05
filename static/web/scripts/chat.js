@@ -21,10 +21,35 @@ jQuery(function ($) {
       });
     }
 
+    window.addEventListener("load", function(){
+           if(document.height <= window.outerHeight)
+           {
+               document.body.style.height = (window.outerHeight + 50) + 'px';
+               setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
+           }
+           else
+           {
+               setTimeout( function(){ window.scrollTo(0, 1); }, 0 );
+           }
+       }
+    );
+
+    function hideAddressBar() {
+        if(!window.location.hash) {
+            if(document.height < window.outerHeight) {
+                document.body.style.height = (window.outerHeight + 50) + 'px';
+            }
+            setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
+        }
+    }
+
+    window.addEventListener("load", function(){ if(!window.pageYOffset){ hideAddressBar(); } } );
+    window.addEventListener("orientationchange", hideAddressBar );
+
     $('a.recycle').on('click',function(e){
-      $userBox.val('')
-      generateUser();
-      e.preventDefault();
+        $userBox.val('')
+        generateUser();
+        e.preventDefault();
     }).trigger('click');
 
     $addForm.submit(function (e) {
