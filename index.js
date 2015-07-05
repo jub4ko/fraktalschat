@@ -7,8 +7,11 @@ var path = require('path');
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var chatusers = [];
+
+console.log('Server: Fraktals Chat started.');
 app.use(express.static(path.join(__dirname, 'static')));
 
+console.log('Server running at port: ' + ( process.env.PORT || 5000 ) + '.');
 app.listen(process.env.PORT || 5000);
 
 
@@ -16,6 +19,7 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/web/chat/index.html');
 });
 
+console.log('Server routing configured.');
 
 /* Utilities */
 function getDateTime() {
@@ -86,5 +90,7 @@ io.on('connection', function (socket) {
         updateChatUsers();
         systemMessage(socket.nickname,'left the room.')
       }
-    })
+    });
+    
+    console.log('Socket bindings initiated.');
 });
