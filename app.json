@@ -1,0 +1,7 @@
+{
+  "name": "Fraktals Chat",
+  "description": "A barebones chat client",
+  "repository": "https://github.com/jub4ko/fraktalschat.git",
+  "logo": "http://cdn.flaticon.com/svg/57/57104.svg",
+  "keywords": ["node", "express", "static"]
+}
