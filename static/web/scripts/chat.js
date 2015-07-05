@@ -53,8 +53,10 @@ jQuery(function ($) {
     window.addEventListener("load", function(){ if(!window.pageYOffset){ hideAddressBar(); } } );
     window.addEventListener("orientationchange", hideAddressBar );
 
-    if( navigator.userAgent.match(/iPad|iPhone|iPod/g) ? true : false ) {
-      $('.home-screen').show();
+    var ios = (navigator.userAgent.match(/iPad|iPhone|iPod/g) ? true : false);
+    var fromHomescreen = window.navigator.standalone || window.external.msIsSiteMode();
+    if(!fromHomescreen && ios) {
+        $('.home-screen').show();
     }
 
     $('a.recycle').on('click',function(e){
