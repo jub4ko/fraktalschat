@@ -171,8 +171,8 @@ input:active{
     content: "say:";
     color:rgb(81, 148, 181);
     font-size: 15px;
-    left: 0;
-    padding: 7px 0 0 10px;
+    left: 9%;
+    padding: 9px 0 0 10px;
     position: absolute;
 }
 
@@ -378,6 +378,14 @@ input:active{
   }
   #chatusers li {
     font-size:14px;
+  }
+  #send-message{
+    width:80%;
+    left:2%;
+  }
+  #send-message input#message{margin-left:2%}
+  #send-message:before{
+    left:1.75%;
   }
   #send-message input[type="submit"]{
     font-size:12px;
