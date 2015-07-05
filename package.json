@@ -1,7 +1,7 @@
 {
-  "name": "Fraktals Chat",
+  "name": "FraktalsChat",
   "version": "0.1.0",
-  "description": "Fraktals Chat server",
+  "description": "FraktalsChatserver",
   "main": "index.js",
   "scripts": {
     "start": "node app.js"
