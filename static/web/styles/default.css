@@ -79,7 +79,7 @@ input:active{
   min-height: 0;
   position: relative;
   top: 10vh;
-  width: 60;
+  width: 95vw;
 }
 #site h2{margin:15px 0;}
 #chat {
@@ -138,32 +138,32 @@ input:active{
 
 
 #send-message {
+  bottom: 13vh;
   clear: both;
-  position: absolute;
-  width: 100%;
+  left: 0;
   margin: 0;
-  bottom: 10px;
+  position: fixed;
+  width: auto;
 }
-#send-message input{
-    box-sizing:border-box;
-    font-size:14px;
-    font-size:1.4vw;
-    padding:2px;
-    width:17%;
-    margin:0;
-    padding:2px 0;
-    float:left;
-    display:inline-block;
-    cursor:pointer;
-    height:35px;
+#send-message input {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    font-size: 1.4vw;
+    height: 35px;
+    margin: 0;
+    padding: 2px 0;
+    width: 17%;
+}
 
-}
 #send-message input#message {
-  box-sizing: border-box;
-  font-size: 16px;
-  margin-right: 2%;
-  padding: 2px 15px 2px 45px;
-  width: 75%;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-left: 9%;
+    margin-right: 2%;
+    padding: 2px 15px 2px 45px;
+    width: 64%;
 }
 
 #send-message:before{
@@ -385,9 +385,9 @@ input:active{
 /* MOBILE */
 @media all and (max-width: 540px){
   #site {
-    height: 80vh;
-    top: 10vh;
-    width: 90%;
+      height: 80vh;
+      top: 10vh;
+      width: 90%;
   }
   h1 {
   font-size: 22px;
