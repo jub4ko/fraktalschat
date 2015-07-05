@@ -9,7 +9,7 @@ var io = require('socket.io').listen(server);
 var chatusers = [];
 app.use(express.static(path.join(__dirname, 'static')));
 
-server.listen(3000);
+server.listen(80);
 
 
 
