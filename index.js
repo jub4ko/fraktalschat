@@ -13,7 +13,7 @@ server.listen(80);
 
 
 
-app.get('/chat', function (req, res) {
+app.get('/', function (req, res) {
     res.sendFile(__dirname + '/web/chat/index.html');
 });
 
