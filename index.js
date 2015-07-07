@@ -1,14 +1,18 @@
 /*jslint node: true */
 "use strict";
 
+var config = require('./config');
 var express = require('express');
 var app = express();
 var path = require('path');
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
+
+var utils = require('./utils/utils');
 var chatusers = [];
 
-var db = require('mongoskin').db('mongodb://fraktalsadmin:fraktalspass@ds047772.mongolab.com:47772/fraktalschat');
+var cdb = config.database;
+var db = require('mongoskin').db(cdb.urltype + "://" + cdb.user + ':' + cdb.pass + "@" + cdb.url + "/" + cdb.project);
 var users = db.collection('userschat');
 
 function findUser(username,password) {
@@ -24,26 +28,15 @@ function findUser(username,password) {
 
 }
 
-
-/*
-db.collection('userschat').find().toArray(function(err, result) {
-    if (err) throw err;
-    console.log(result);
-});
-*/
-
-console.log('Server: Fraktals Chat started.');
 app.use(express.static(path.join(__dirname, 'static')));
-
-console.log('Server running at port: ' + (process.env.PORT || 80) + '.');
 server.listen(process.env.PORT || 80);
-
-
 app.get('/', function (req, res) {
     req = req;
     res.sendFile(__dirname + '/web/chat/index.html');
 });
 
+console.log('Server: Fraktals Chat started.');
+console.log('Server running at port: ' + (process.env.PORT || 80) + '.');
 console.log('Server routing configured.');
 
 /* Utilities */

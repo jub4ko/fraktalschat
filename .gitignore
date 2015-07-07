@@ -45,4 +45,9 @@ node_modules
 ehthumbs.db
 Thumbs.db
 
+# Config files #
+###############
+
+config.js
+
 node_modules/*
