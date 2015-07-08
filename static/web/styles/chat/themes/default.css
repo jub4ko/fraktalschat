@@ -1,0 +1,48 @@
+/* global styling is set in /static/web/styles/chat/generic.css */
+
+/*
+
+Rules:
+  spacing of 6/12/24/36/48 etc
+  border-radius of 12
+*/
+
+/* Framework extended */
+#site{
+  background-color:#fff;
+  border-radius:12px;
+  padding:24px;
+  margin:36px auto 12px auto;
+  max-width:1028px;
+  width:95%;
+  position:relative;
+}
+
+/* Panels */
+.panels-authentication{
+  margin:60px 0;
+  border-radius:12px;
+  background-color:#efefef;
+  padding:24px;
+}
+
+.panels-authentication .col{
+}
+
+/* Forms */
+form label{
+  display:block;
+  clear:both;
+  margin-bottom:0;
+}
+
+form#login input[type="text"],
+form#login input[type="password"]{
+  width:60%;
+}
+
+form#login input[type="submit"]{
+  clear:both;
+  display:block;
+  width:150px;
+}

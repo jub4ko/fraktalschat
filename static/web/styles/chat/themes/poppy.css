@@ -1,0 +1,587 @@
+@import url(https://fonts.googleapis.com/css?family=Days+One);
+
+html, body { width:100vw; height:100vh;}
+html { -webkit-text-size-adjust: 100%}
+
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Days One', sans-serif;
+    font-size:14px;
+    font-size: 1.3vw;
+    background:url('/web/images/bg_rainbow2.jpg') 0 0 no-repeat;
+    background-size: cover;
+    overflow:hidden;
+    color:#cef;
+}
+h1,h2,h3,h4{
+    font-size:3vw;
+    font-weight:400;
+    margin:0;
+    padding:0;
+    cursor:default;
+}
+/*h1 {
+  color: #fff;
+  font-size: 5.5vh;
+  left: -17px;
+  position: absolute;
+  top: -11.5vh;
+}*/
+h1 {
+  color: #fff;
+  font-size: 4.5vh;
+  left: -9px;
+  position: absolute;
+  top: -7.5vh;
+}
+h1 span{opacity:0.3;text-transform:uppercase;}
+h2{
+    font-size:8.6vh;
+}
+h3{
+  font-size:4.4vh;
+}
+
+p,strong,ul,li,span{
+  cursor:default;
+}
+
+input {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: medium none;
+  border-radius: 8px;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
+  color: rgb(51, 119, 153);
+  font-family: "Days One",sans-serif;
+  font-size: 1.3vw;
+  padding: 5px;
+  transition: all 0.3s ease-in 0s;
+  cursor:pointer;
+}
+
+input[type="submit"]{
+  cursor:pointer;
+  padding-bottom:3px;
+}
+input:hover{
+  background-color:rgba(223, 251, 255,1);
+  transition:all ease-out 0.3s;
+  box-shadow: 0 0 0 3px rgba(0, 156, 255, 0.8);
+}
+input:focus,
+input:active{
+  background-color: rgba(255, 255, 255, 1);
+  transition:all ease-out 0.3s;
+  box-shadow: 0 0 0 3px rgba(138, 214, 230, 1);
+}
+
+.cf:before,.cf:after {content: " ";display: table}.cf:after {clear: both}
+
+#site {
+  box-sizing: border-box;
+  height: 80vh;
+  margin: 0 auto;
+  min-height: 0;
+  position: relative;
+  top: 10vh;
+  width: 95vw;
+}
+#site h2{margin:15px 0;}
+#chat {
+    box-sizing:border-box;
+    height:90%;
+    font-size:15px;
+    font-size:1.5vw;
+    overflow:auto;
+    margin-bottom:30px;
+    padding:14px;
+    margin:0;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+}
+
+#chat li {
+  position:relative;
+  background-color: rgba(75,0,0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 0 1px 4px rgba(0,0,0, 0.1);
+  list-style-type: none;
+  margin: 5px 0;
+  overflow: hidden;
+  padding: 4px 6px;
+  text-overflow: ellipsis;
+  width: 75%;
+}
+
+#chat li .msg-content{
+  clear:both;
+  display:block;
+
+}
+
+#chat > li:nth-child(2n+2) {
+  background: rgba(0, 0, 75, 0.2) none repeat scroll 0 0;
+  border-radius: 12px;
+  box-shadow: 0 0 1px 4px rgba(0, 0, 0, 0.1);
+  float: right;
+  margin-bottom: 15px;
+  padding: 8px;
+  text-align: right;
+}
+
+#chat > li:nth-child(2n+2) .time {
+  color: rgb(150, 200, 255);
+  float: left;
+  padding-right: 5px;
+  position: relative;
+}
+#chat > li:nth-child(2n+2) .msg-user strong {
+  float:right;
+  margin-left:15px;
+  color:rgb(255,255,255);
+}
+
+
+#send-message {
+  bottom: 13vh;
+  clear: both;
+  left: 0;
+  margin: 0;
+  position: fixed;
+  position: sticky;
+  width: auto;
+}
+#send-message input {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    font-size: 1.4vw;
+    height: 35px;
+    margin: 0;
+    padding: 2px 0;
+    width: 17%;
+}
+
+#send-message input#message {
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-left: 9%;
+    margin-right: 2%;
+    padding: 2px 15px 2px 45px;
+    width: 64%;
+}
+
+#send-message:before{
+    content: "say:";
+    color:rgb(81, 148, 181);
+    font-size: 15px;
+    left: 9%;
+    padding: 9px 0 0 10px;
+    position: absolute;
+}
+
+#chatwrapper{
+    box-sizing:border-box;
+    float:left;
+    position:relative;
+    width:75%;
+    height:100%;
+    padding:10px 10px 54px;
+  }
+  #chatwrapper h2 {
+    font-size: 1.5vw;
+    margin: 10px 0 0 0;
+    padding-left: 15px;
+  }
+  #container {
+  background: rgba(0, 0, 0, 0.2) none repeat scroll 0 0;
+  border-radius: 8px;
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+  #user-list {
+    border-width: 0 0 0 1px;
+    box-sizing: border-box;
+    float: right;
+    height: 300px;
+    position: relative;
+    width: 25%;
+    padding: 0 10px 0 0;
+  }
+
+#user-list h2{
+  font-size:16px;
+  font-size:1.5vw;
+  margin:20px 0 10px 0 ;
+}
+
+#avatar {
+  /*background: rgba(255, 255, 255, 0.6) none repeat scroll 0 0;*/
+  border-radius: 8px;
+  box-sizing: border-box;
+  float: left;
+  height: 100%;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+}
+
+#avatar h3 {
+    font-size: 42px;
+    font-size:3.5vw;
+    margin-bottom: 10px;
+    margin-bottom:1vh;
+    text-align: center;
+    cursor:default;
+}
+
+#avatar h3 span {
+
+  display: inline-block;
+  font-size: 11px;
+  text-align: center;
+  width: 25%;
+  width:17vw;
+  cursor:default;
+}
+
+#avatar #username {
+  font-size:42px;
+  font-size:3.5vw;
+  text-align:center;
+  background:none;
+  color:#fff;
+  box-shadow:none;
+  display: inline-block;
+  float: left;
+  width: 100%;
+  cursor:pointer;
+}
+#avatar #username:hover {
+  background: rgba(255, 255, 255, 0.3) none repeat scroll 0 0;
+  box-shadow:0 0 0 5px rgba(255,255,255,0.2);
+  border-radius: 30px;
+  color: rgb(75, 75, 75);
+  display: inline;
+}
+
+#avatar input[type="submit"]{
+  background: #fff none repeat scroll 0 0;
+  border: 2px solid rgb(189, 233, 242);
+  border-radius: 12px;
+  color: rgb(51, 119, 153);
+  font-family: "Days One",sans-serif;
+  font-size: 24px;
+  padding: 5px;
+  transition: all 0.3s ease-in 0s;
+  width:35%;
+  margin:50px auto 0 auto;
+  display:block;
+}
+#avatar input[type="submit"]:hover{
+  background: rgba(255, 255, 255, 0.6) none repeat scroll 0 0;
+  border: 2px solid lightblue;
+}
+
+#avatar a.recycle {
+  background: #fff url('/web/images/icon_reload.png') 0 0 no-repeat;
+  background-size: 24px 24px;
+  height:24px;
+  width:24px;
+  border: 2px solid rgb(189, 233, 242);
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  margin:0 0 0 0;
+  top:9px;
+  left:18px;
+  position: relative;
+  transition: all 0.5s ease-in 0s;
+}
+
+#avatar a.recycle:hover{
+  transform: rotate(180deg);
+  transition:all 0.5s ease-out;
+}
+
+#chatusers {
+  padding: 8px 0 0 15px;
+}
+
+#chatusers li {
+  color: rgb(180, 255, 255);
+  cursor: default;
+  font-size: 1.2vw;
+  line-height: 11px;
+  list-style-position: inside;
+  list-style-type: none;
+  margin: 0 0 10px;
+  overflow: hidden;
+  padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+#chatusers li:before{
+  content:"-";
+  position:absolute;
+  left:3px;
+}
+
+.copyright {
+  bottom: 0;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 300;
+  opacity: 0.5;
+  position: fixed;
+  right: 10px;
+  text-align: right;
+  width: 100%;
+  z-index: 0;
+}
+
+.error {
+  color: #F55;
+  font-size: 21px;
+  text-align: center;
+}
+.note {
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+  border-radius: 8px;
+  color: #fc0;
+  font-size: 11px;
+  padding: 2px;
+  text-align: center;
+  cursor:default;
+}
+.hide{display:none;}
+#chat .time {
+  color: rgb(100, 150, 255);
+  font-size: 0.8em;
+  margin-top: 2px;
+  padding-right: 5px;
+  position: relative;
+  top: -2px;
+}
+.msg-system{color:rgb(252, 164, 30)}
+.msg-joined{color:rgb(29, 168, 143)}
+.msg-user{color:rgb(58, 80, 124)}
+.msg-user strong {
+  color: rgb(180,200,255);
+  font-weight: 400;
+}
+.msg-username{color: rgb(110, 160, 220)}
+
+/* Register */
+.login {
+  color: #fff;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 15px;
+  text-decoration: none;
+  transition:all 0.3s ease-in;
+  z-index:99
+}
+.login:hover,.login:active{
+  transition:all 0.3s ease-out;
+  color:#ffa800;
+}
+
+#user-register {
+  border-radius: 12px;
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+  margin: 0;
+  min-width: 300px;
+  padding: 15px;
+  position: absolute;
+  width: 100%;
+}
+
+#user-register form#login > input {
+  font-size: 18px;
+  padding: 2px 8px;
+}
+
+#user-register #login span {
+  color: #fff;
+  float: right;
+  font-size: 11px;
+  opacity: 0.7;
+  padding: 5px 48px 0 0;
+}
+
+#user-register #login > h2 {
+  font-size: 3.5vw;
+  text-align: center;
+  position:relative;
+  margin-top:-5px;
+}
+
+#user-register > form {
+  display: block;
+  margin: 0 auto;
+  min-width: 290px;
+  width: 19vw;
+}
+
+#user-register > form strong {
+  display: block;
+  font-size: 15px;
+  font-weight: normal;
+  margin: 15px 0 5px;
+}
+
+#user-register #login .error {
+  background: rgba(255, 255, 255, 0.2) none repeat scroll 0 0;
+  border-radius: 8px;
+  color: #c22;
+  font-size: 16px;
+  padding: 3px;
+  width: 92%;
+}
+
+#user-register #login > input {
+  font-size: 16px;
+  padding: 4px 10px;
+}
+
+#user-register #login > input[type="submit"] {
+  clear: both;
+  display: block;
+  margin: 20px 0 0 200px;
+}
+
+#user-register #login .note {
+  margin-top: 30px;
+  display: block;
+  width: 93%;
+}
+
+/*BIG SCREEN */
+@media all and (min-width: 980px) {
+  h1 {
+    font-size: 32px;
+    top: -63px;
+  }
+  #chat{
+      font-size: 15px;
+  }
+  #chatusers li {
+    font-size:14px;
+  }
+  #send-message{
+    width:80%;
+    left:2%;
+  }
+
+  #avatar h3 span{
+    font-size:15px;
+  }
+
+  #send-message input#message{margin-left:2%}
+  #send-message:before{
+    left:1.75%;
+  }
+  #send-message input[type="submit"]{
+    font-size:12px;
+  }
+}
+/* MOBILE */
+@media all and (max-width: 540px){
+  #site {
+      height: 80vh;
+      top: 10vh;
+      width: 90%;
+  }
+  h1 {
+  font-size: 22px;
+  left: -9px;
+  top: -41px;
+}
+  h2{display:none;}
+  #chat{
+      font-size: 15px;
+  }
+  #chat > li{
+    width:100%;
+    float:none;
+    clear:both;
+    padding:5px;
+    margin:5px 0;
+
+  }
+  #chatwrapper{
+    width:100%;
+  }
+
+
+  #user-list{display:none !important;}
+
+  #chatusers li {
+    font-size:11px;
+  }
+  #avatar input[type="submit"]{
+    font-size:19px;
+    width:75%;
+    margin-top:55px;
+  }
+  h3{
+    font-size:19px;
+    margin-bottom:0;
+  }
+  #avatar a.recycle{
+    margin-top:50px;
+    left:0;
+    top:0;
+  }
+
+  #avatar h3 span{
+    width:100%;
+    text-align:center;
+  }
+  #avatar #username{
+    font-size:19px;
+  }
+  #send-message:before{
+    display:none;
+  }
+  #send-message input#message[type="text"]{
+    padding-left:5px;
+    font-size:16px!important;
+  }
+  #send-message input[type="submit"]{
+    font-size:12px;
+  }
+
+  .home-screen > p {
+    background: rgba(255, 255, 255, 0.3) none repeat scroll 0 0;
+    border-radius: 10px;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    margin: 119px auto 0;
+    padding: 2px;
+    position: relative;
+    text-align: center;
+    width: 83%;
+  }
+
+  .home-screen strong {
+    color: #9cf;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+  }
+}

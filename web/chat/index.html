@@ -40,69 +40,110 @@
   <link rel="apple-touch-startup-image" href="splash.png" >
   <link rel="manifest" href="/web/images/icons/manifest.json">
 
-  <link rel="stylesheet" type="text/css" href="/web/styles/default.css" >
+  <link rel="stylesheet" media="all" type="text/css" href="/web/styles/generic.css" >
+  <link rel="stylesheet" media="all" type="text/css" href="/web/styles/chat/themes/default.css" >
+  <link rel="stylesheet" media="screen" type="text/css" href="/web/styles/responsive.css" >
+  <link rel="stylesheet" media="print" type="text/css" href="/web/styles/print.css" >
+
 </head>
 <body>
-  <div id="site">
-      <div id="container">
+    <article id="site">
+        <header>
           <h1>Fraktals <span>Chat</span></h1>
-          <div id="avatar">
-            <h3>Welcome</h3>
-            <a href="#" id="buttonregister" class="login loginbutton" >Login / Register</a>
-            <form id="add-user">
-                <input size="35" type="text" id="username" placeholder="Your username">
-                <h3><span>Your name is editable.</span><a href="" class="recycle"></a></h3>
-                <input type="submit" value="Enter Fraktals"/>
-            </form>
-            <p class="error hide">Sorry, this name is already in use.</p>
-
-            <div class="home-screen hide">
-              <p>To add this app to the home screen, press
-                <img src="/web/images/icon_share2.png" alt="share" width="16" height="16" />
-                and than <strong>add to Home Screen.</strong>
-              </p>
+        </header>
+        <section id="window-authentication">
+          <h1>Welcome</h1>
+          <P>Login directly or registrate your user directly.</p>
+          <div class="row panels-authentication">
+            <div id="panel-login"class="col col-2">
+                <form id="add-user">
+                    <h2>Enter your name.</h2>
+                    <input size="35" type="text" id="username" placeholder="Your username">
+                    <a href="" title="generate a new name." class="recycle"></a></h3>
+                    <input type="submit" value="Enter Fraktals"/>
+                </form>
+                <p class="error hide">Sorry, this name is already in use.</p>
+            </div>
+            <div id="panel-registration" class="col col-2">
+                <form id="login">
+                    <legend>registrate your user.</legend>
+                    <h2>Registration</h2>
+                    <label>Username:</label>
+                    <input type="text" id="loginusername" placeholder="John Doe">
+                    <label>Password:</label>
+                    <input type="password" id="passuser" placeholder="PassWord">
+                    <label>E-mail <span>only for registration</span></label>
+                    <input type="text" id="emailuser" placeholder="john@doe.com">
+                    <p class="error hide">Sorry, something went wrong. Check the form fields.</p>
+                    <input id="submit-newuser" type="submit" value="Register">
+                </form>
+                <div class="note">
+                    <p class="warning">Usernames and Passwords are not yet secure, implementation follows shortly!</p>
+                </div>
             </div>
           </div>
 
-          <div id="chatwrapper" class="cf hide">
-              <h2>Room:</h2>
-              <ul id="chat"></ul>
-              <form id="send-message">
-                  <input size="35" type="text" id="message" maxlength="255" value="">
-                  <input type="submit" value="Send" />
-              </form>
+          <div class="row home-screen hide">
+              <div id="col">
+                  <p>To add this app to the home screen, press
+                    <img src="/web/images/icon_share2.png" alt="share" width="16" height="16" />
+                    and than <strong>add to Home Screen.</strong>
+                  </p>
+              </div>
+          </div>
+        </section>
+        <section id="window-chat">
+          <div class="row panels-chat hide">
+              <section class="col col-75 panel-chat-content">
+                <div class="block block-chat-list">
+                    <h1>Room:</h1>
+                    <ul id="chat">
+                        <li>
+                            <h2 class="user status-offline">Admin</h2>
+                            <p class="message">Welcome, send a message.</p>
+                            <sub class="timestamp">12:35</sub>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block block-chat-input">
+                    <h1>Message:</h1>
+                    <form id="send-message">
+                        <input size="35" type="text" id="message" maxlength="255" value="">
+                        <input type="submit" value="Send" />
+                    </form>
+                </div>
+              </section>
+              <aside class="col col-25 panel-chat-meta">
+                  <div class="block block-users">
+                      <h1>Online users:</h1>
+                      Chat users
+                  </div>
+                  <div class="block block-chat-options">
+                      <h1>Options:</h1>
+
+                      <ul class="options">
+                        <li><a class="icon icon-history" href="#history">Load History</a></li>
+                        <li><a class="icon icon-notifications" href="#notification">Toggle Notifications</a></li>
+                        <li><a class="icon icon-sound" href="#mute">Toggle Sound</a></li>
+                        <li><a class="icon icon-rooms" href="#mute">Change Room</a></li>
+                        <li><a class="icon icon-rooms" href="#mute">Create Room</a></li>
+                      </ul>
+
+                  </div>
+              </aside>
           </div>
 
-          <div id="user-list" class="cf hide">
-              <h2>Online users:</h2>
-              <ul id="chatusers">
-                <li>no users</li>
-              </ul>
-          </div>
+        </section>
+        <footer>
+          <p class="copyright">copyright Neko Media 2015</p>
+        </footer>
+    </article>
 
-          <div id="user-register" class="hide">
-            <a href="#" id="" class="login loginbutton" >&laquo; Back</a>
-            <form id="login">
-                <h2>Login</h2>
-                <strong>Username:</strong>
-                <input type="text" id="loginusername">
-                <strong>Password:</strong>
-                <input type="password" id="passuser">
-                <strong>E-mail <span>only for registration</span></strong>
-                <input type="text" id="emailuser">
-                <p class="error hide">Sorry this combination does not exist.</p>
-                <input id="submit-newuser" type="submit" value="login">
-                <p class="note">Usernames and Passwords are not yet secure, implementation follows shortly!</p>
-            </form>
-          </div>
 
-      </div>
-  </div>
-
-  <p class="copyright">copyright Neko Media 2015</p>
   <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="/web/scripts/chat.js"></script>
+  <script type="text/javascript" src="/web/scripts/mobile.js"></script>
 
 </body>
 </html>

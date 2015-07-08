@@ -8,7 +8,7 @@ var path = require('path');
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
-var utils = require('./utils/utils');
+var utils = require('./uti/main');
 var chatusers = [];
 
 var cdb = config.database;
@@ -49,15 +49,6 @@ function getDateTime() {
     var sec = date.getSeconds();
     sec = (sec < 10 ? "0": "") + sec;
     return hour + ":" + min + ":" + sec;
-}
-
-function randomName(data) {
-    data = [['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'], ['Fire', 'Wind', 'Earth', 'Water', 'Electric', 'Wood', 'Ghost', 'Light', 'Shadow', 'Metal', 'Psychic', 'Aether', 'Spring', 'Summer', 'Autumn', 'Winter'], ['Mog', 'Shiva', 'Ifrit', 'Ramuh', 'Titan', 'Odin', 'Leviathan', 'Bahamut', 'Phoenix', 'Kujata'], ['', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']];
-    var no1 = data[0][Math.round(Math.random() * (data[0].length - 1))];
-    var no2 = data[1][Math.round(Math.random() * (data[1].length - 1))];
-    var no3 = data[2][Math.round(Math.random() * (data[2].length - 1))];
-    var no4 = data[3][Math.round(Math.random() * (data[3].length - 1))];
-    return no1 + ". " + no2 + "-" + no3 + " " + no4;
 }
 
 io.on('connection', function (socket) {
@@ -105,12 +96,12 @@ io.on('connection', function (socket) {
     });
 
     socket.on('generate user', function (data, callback) {
-        callback(randomName(data));
+        callback(utils.randomName(data));
     });
 
     socket.on('send message', function (data) {
         data = data.toString().substring(0, 255);
-        io.sockets.emit('new message', {user: socket.nickname, timestamp: getDateTime(), message: data});
+        io.sockets.emit('new message', {user: socket.nickname, timestamp: utils.getDateTime(), message: data});
     });
 
     socket.on('disconnect', function (data) {

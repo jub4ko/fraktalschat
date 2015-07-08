@@ -1,0 +1,111 @@
+@import url(https://fonts.googleapis.com/css?family=Days+One);
+
+/* Basic */
+html,body{margin:0;padding:0;height:100vh; width:100vw;}
+html { -webkit-text-size-adjust: 100%}
+
+body{
+  overflow:hidden;
+  font-family: 'Days One', sans-serif;
+  font-size:62.5%;
+  color:#333;
+  background:#efefef;
+}
+
+html,body,article,section,aside,div{
+  box-sizing:border-box;
+}
+
+h1,h2,h3,h4,h5,h6,
+input,label,option,
+textarea,p,ul,li{
+  margin:0 0 1.2em 0;
+  padding:0;
+  cursor:default;
+  font-size:1.4em;
+  line-height:1.2em;
+  border-radius:8px;
+}
+
+ul,li{
+  list-style:none;
+  font-size:1em;
+}
+
+h1{font-size:2.6em;margin-bottom:0.8em}
+h2{font-size:2.2em;margin-bottom:1.0em}
+h3{font-size:1.8em;margin-bottom:1.1em}
+h4{font-size:1.6em;font-weight:400}
+
+input{
+  background:#fff;
+  border:1px solid #aaa;
+  padding:3px 5px;
+}
+
+footer{
+  padding:1em;
+}
+footer .copyright{
+  font-weight:400;
+  text-align:right;
+  font-size:1.2em;
+}
+
+fieldset{
+  margin:0;
+  padding:0;
+  border:0
+}
+legend{display:none}
+
+/* States  */
+.hide,.hidden,.invisible{display:none}
+.show,.visible{display:block}
+.float-left{float:left}
+.float-right{float:right}
+.clear{clear:both}
+.group:before,.group:after {content: " ";display: table}.group:after {clear: both}
+.note {
+  background: rgba(255, 255, 255, 0.5) none repeat scroll 0 0;
+  border: 2px solid #fff;
+  padding: 5px 10px;
+}.note > p{margin:0}
+
+.error{color:#F55}
+.info{color:#55F}
+.warning{color:#cb5b00}
+.accept{color:#55F}
+
+/* Framework */
+
+.row{
+  width:100%;
+  clear:both;
+  font-size:10px;
+}
+
+.col{
+  display:inline-block;
+  margin-left:-4px;
+  vertical-align:top;
+  width:100%
+}
+
+.col-2{width:50%}
+.col-3{width:33.33%}
+.col-4{width:25%}
+.col-5{width:20%}
+.col-6{width:16.66%}
+.col-7{width:14.28%}
+.col-8{width:12.50%}
+.col-9{width:11.11%}
+.col-9{width:10%}
+
+.col-12{width:12.50%}
+.col-25{width:25%}
+.col-50{width:50%}
+.col-75{width:75%}
+
+.col-33{width:33.33%}
+.col-66{width:66.66%}

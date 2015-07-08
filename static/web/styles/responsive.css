@@ -1,0 +1,17 @@
+/* MOBILE */
+@media screen and (max-width: 540px){
+  body{overflow:auto;}
+
+  article,section,aside,div,.block,.col{
+    float:none !important;
+    clear:both !important;
+    padding:5px;
+    margin:0;
+    width:100%;
+  }
+}
+
+/*BIG SCREEN */
+@media all and (min-width: 980px) {
+
+}
